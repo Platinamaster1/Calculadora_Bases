@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1607438846 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
+	<iostream>
+	<string.h>
+	<vector>
+	<stdlib.h>
+	"Calculadora.h"
+
+1607437556 d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.h
+	"../Digito/Digito.h"
+	"../Operadoras/SomadoraDigito.h"
+	"../Operadoras/SubtradoraDigito.h"
+	"../Operadoras/MultiplicadoraDigito.h"
+	"../Operadoras/DivisoraDigito.h"
+
+1607464304 d:\4ºsemestre\too\calculadora_bases\digito\digito.h
+	<iostream>
+
+1607433618 d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.h
+	"../Digito/Digito.h"
+
+1607435902 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
+	"../Digito/Digito.h"
+
+1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.h
+	"../Digito/Digito.h"
+
+1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\divisoradigito.h
+	"../Digito/Digito.h"
+
+1607431862 source:d:\4ºsemestre\too\calculadora_bases\digito\digito.cpp
+	<iostream>
+	<string.h>
+	<stdlib.h>
+	"Digito.h"
+
+1607432460 source:d:\4ºsemestre\too\calculadora_bases\operadoras\divisoradigito.cpp
+
+1607432448 source:d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.cpp
+
+1607434650 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
+	"SomadoraDigito.h"
+
+1607434746 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
+	"SubtradoraDigito.h"
+
+1607464210 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
+	<iostream>
+	<string>
+	<stdlib.h>
+	<vector>
+	<locale>
+	"Calculadora/Calculadora.h"
+	"Digito/Digito.h"
+

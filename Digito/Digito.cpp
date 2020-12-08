@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+using namespace std;
 #include "Digito.h"
 
 void Digito::SetDigito(char d)
@@ -44,7 +45,7 @@ bool Digito::DigitoValido(int base)
         {
             return true;
         }
-        
+
     if(this->digito > 64 && this->digito < 91)
         if(((int)this->digito - 65) > base)
             return false;
@@ -61,3 +62,11 @@ bool Digito::DigitoValido(int base)
             return true;
         }
 };
+
+void Digito::Print(ostream *os) {
+    *os << "Digito: " << this->digito << endl;
+}
+ostream &operator<<(ostream &os, Digito &d) {
+    d.Print(&os);
+    return os;
+}
