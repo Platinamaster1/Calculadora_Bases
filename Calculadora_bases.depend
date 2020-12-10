@@ -28,7 +28,7 @@
 1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\divisoradigito.h
 	"../Digito/Digito.h"
 
-1607431862 source:d:\4ºsemestre\too\calculadora_bases\digito\digito.cpp
+1607464314 source:d:\4ºsemestre\too\calculadora_bases\digito\digito.cpp
 	<iostream>
 	<string.h>
 	<stdlib.h>
