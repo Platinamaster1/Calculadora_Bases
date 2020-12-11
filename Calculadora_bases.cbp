@@ -36,6 +36,8 @@
 		<Unit filename="Calculadora/Calculadora.h" />
 		<Unit filename="Digito/Digito.cpp" />
 		<Unit filename="Digito/Digito.h" />
+		<Unit filename="Formatadora/Formatadora.cpp" />
+		<Unit filename="Formatadora/Formatadora.h" />
 		<Unit filename="Operadoras/DivisoraDigito.cpp" />
 		<Unit filename="Operadoras/DivisoraDigito.h" />
 		<Unit filename="Operadoras/MultiplicadoraDigito.cpp" />
@@ -44,6 +46,8 @@
 		<Unit filename="Operadoras/SomadoraDigito.h" />
 		<Unit filename="Operadoras/SubtradoraDigito.cpp" />
 		<Unit filename="Operadoras/SubtradoraDigito.h" />
+		<Unit filename="Verificadora/Verificadora.cpp" />
+		<Unit filename="Verificadora/Verificadora.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
