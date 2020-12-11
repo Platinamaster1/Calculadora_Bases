@@ -9,6 +9,7 @@ using namespace std;
 #include "Calculadora/Calculadora.h"
 #include "Digito/Digito.h"
 #include "Verificadora/Verificadora.h"
+#include "Formatadora/Formatadora.h"
 
 int main()
 {
@@ -102,6 +103,16 @@ int main()
 
         cout << stringNum1 << " " << stringNum2 << " " << baseNumerica << endl;
 
+        stringNum1[stringNum1.find('.')] = ',';
+        stringNum2[stringNum2.find('.')] = ',';
+
+        if(Verificadora::temMaisCasasDpsVirgula)
+            stringNum2 = Formatadora::IgualarZeros(stringNum2, Formatadora::PegarCasasDpsVirgula(stringNum1, stringNum2));
+        else
+        {
+            stringNum1 = Formatadora::IgualarZeros(stringNum1, Formatadora::PegarCasasDpsVirgula(stringNum1, stringNum2));
+        }
+        
         // A PARTIR DAQUI A LÓGICA DE VERDADE, EH ESTE MARCO QUE SEPARA OS/AS MENINOS/MENINAS DOS/DAS HOMENS/MULHERES
 
 
