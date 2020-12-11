@@ -55,7 +55,7 @@ bool Digito::DigitoValido(int base)
         }
 
     if(this->digito > 96 && this->digito < 123)
-        if(((int)this->digito - 97) > base)
+        if(((int)this->digito - 87) > base)
             return false;
         else
         {

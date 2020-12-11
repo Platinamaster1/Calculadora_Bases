@@ -4,33 +4,33 @@
 #include <stdlib.h>
 #include "Calculadora.h"
 
-Digito* Calculadora::SomarCom(Digito* numero, Digito* numeroASomar, unsigned int base)
+string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int base)
 {
     unsigned int tamanho = sizeof(numeroASomar) / sizeof(numeroASomar[0]);
     SomadoraDigito sum;
-    Digito* resultado = (Digito*) malloc(sizeof(numeroASomar) + 1);
+    //string resultado = (string) malloc(sizeof(numeroASomar) + 1);
 
     int i;
     for(i = tamanho; i >= 0; i--)
     {
-        Digito resto = sum.SomarDoisDigitos(numero[i], numeroASomar[i], base);
-        resultado[i] = resto;
+        //Digito resto = sum.SomarDoisDigitos(numero[i], numeroASomar[i], base);
+        //resultado[i] = resto;
     }
-    
-    return resultado;
+
+    return "DENIS";
 };
 
-Digito* Calculadora::SubtrairCom(Digito* numero, Digito* numeroASubtrair, unsigned int base)
+string Calculadora::SubtrairCom(string numero, string numeroASubtrair, unsigned int base)
 {
 
 };
 
-Digito* Calculadora::MultiplicarCom(Digito* numero, Digito* numeroAMultiplicar, unsigned int base)
+string Calculadora::MultiplicarCom(string numero, string numeroAMultiplicar, unsigned int base)
 {
 
 };
 
-Digito* Calculadora::DividirCom(Digito* numero, Digito* divisor, unsigned int base)
+string Calculadora::DividirCom(string numero, string divisor, unsigned int base)
 {
-    
+
 };

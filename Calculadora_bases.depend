@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1607438846 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
+1607632340 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
 	<iostream>
 	<string.h>
 	<vector>
 	<stdlib.h>
 	"Calculadora.h"
 
-1607437556 d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.h
+1607631674 d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.h
 	"../Digito/Digito.h"
+	<string>
 	"../Operadoras/SomadoraDigito.h"
 	"../Operadoras/SubtradoraDigito.h"
 	"../Operadoras/MultiplicadoraDigito.h"
@@ -28,7 +29,7 @@
 1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\divisoradigito.h
 	"../Digito/Digito.h"
 
-1607464314 source:d:\4ºsemestre\too\calculadora_bases\digito\digito.cpp
+1607627256 source:d:\4ºsemestre\too\calculadora_bases\digito\digito.cpp
 	<iostream>
 	<string.h>
 	<stdlib.h>
@@ -44,12 +45,22 @@
 1607434746 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
 	"SubtradoraDigito.h"
 
-1607464210 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
+1607631858 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
 	<iostream>
 	<string>
 	<stdlib.h>
 	<vector>
-	<locale>
+	<locale.h>
 	"Calculadora/Calculadora.h"
 	"Digito/Digito.h"
+	"Verificadora/Verificadora.h"
+
+1607629192 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
+	<string.h>
+
+1607632254 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
+	<iostream>
+	<string.h>
+	<stdlib.h>
+	"Verificadora.h"
 
