@@ -78,3 +78,12 @@ bool Verificadora::operacaoValida(char opcao)
         return false;
     return true;
 };
+
+bool Verificadora::temMaisCasasDpsVirgula(string valor1, string valor2)
+{
+    int qntsCasasDpsVirgula1 = valor1.length() - valor1.find(',');
+    int qntsCasasDpsVirgula2 = valor2.length() - valor2.find(',');
+    if(qntsCasasDpsVirgula1 > qntsCasasDpsVirgula2)
+        return true;
+    return false;
+}

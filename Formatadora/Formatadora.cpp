@@ -10,6 +10,7 @@ int Formatadora::PegarCasasDpsVirgula(string valor1, string valor2)
     if(qntsCasasDpsVirgula1 > qntsCasasDpsVirgula2)
         return qntsCasasDpsVirgula1;
     return qntsCasasDpsVirgula2;
+<<<<<<< HEAD
 };
 string Formatadora::IgualarZeros(string valor, int casasDpsVirgula)
 {
@@ -17,3 +18,12 @@ string Formatadora::IgualarZeros(string valor, int casasDpsVirgula)
         valor += '0';
     return valor;
 };
+=======
+};
+string Formatadora::IgualarZeros(string valor, int casasDpsVirgula)
+{
+    for(int i = 0; i < casasDpsVirgula; i++)
+        valor += '0';
+    return valor;
+};
+>>>>>>> ef5b5cb4d249d732525602153e169a4cec6dea68
