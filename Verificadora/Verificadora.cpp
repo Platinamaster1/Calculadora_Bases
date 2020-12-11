@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "Verificadora.h"
+#include "../Formatadora/Formatadora.h"
 
 
 using namespace std;
@@ -86,4 +87,55 @@ bool Verificadora::temMaisCasasDpsVirgula(string valor1, string valor2)
     if(qntsCasasDpsVirgula1 > qntsCasasDpsVirgula2)
         return true;
     return false;
-}
+};
+
+bool Verificadora::digitoEhMaior(char digito1, char digito2)
+{
+    int valor1, valor2;
+    valor1 = Formatadora::ConverterDigitoCharParaInt(digito1);
+    valor2 = Formatadora::ConverterDigitoCharParaInt(digito2);
+    if(valor1 > valor2)
+        return true;
+    return false;
+};
+
+bool Verificadora::ehMaior(string numero1, string numero2)
+{
+    int ondeNumero2 = 0;
+    bool passouVirgula1 = false, passouVirgula2 = false, numero1EhMaior = false, umNumeroFoiMaior = false;
+    for(int i = 0; i < numero1.length(); i++)
+    {
+        if(numero1[i] == '-')
+            continue;
+        if(numero2[ondeNumero2] == '-')
+            ondeNumero2++;
+        if(numero1[i] == ',')
+        {
+            passouVirgula1 = true;
+            continue;
+        }
+        if(numero2[ondeNumero2] == ',')
+        {
+            passouVirgula2 = true;
+            ondeNumero2++;
+        }
+        if(passouVirgula1 && !passouVirgula2)
+            return false;
+        if(!passouVirgula1 && passouVirgula2)
+            return true;
+        if(umNumeroFoiMaior)
+        {
+            ondeNumero2++;
+            continue;
+        }
+        int valor1 = Formatadora::ConverterDigitoCharParaInt(numero1[i]);
+        int valor2 = Formatadora::ConverterDigitoCharParaInt(numero2[ondeNumero2]);
+        if(valor1 > valor2 || valor2 > valor1)
+        {
+            umNumeroFoiMaior = true;
+            if(valor1 > valor2)
+                numero1EhMaior = true;
+        }
+    }
+    return numero1EhMaior;
+};

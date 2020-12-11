@@ -87,11 +87,17 @@ int main()
 
         cout << "Digite o primeiro numero: ";
         cin >> stringNum1;
+        cout << "Testando Formatadora..." << endl;
+        string res = Formatadora::FormatarResultado(stringNum1);
+        cout << res << endl;
+        return 0;
+
         while(!Verificadora::numeroValido(stringNum1, baseNumerica))
         {
             cout << "O numero digitado eh invalido! Digite o primeiro numero novamente: ";
             cin >> stringNum1;
         };
+
 
         cout << "Digite o segundo numero: ";
         cin >> stringNum2;
@@ -107,12 +113,12 @@ int main()
         stringNum2[stringNum2.find('.')] = ',';
 
         if(Verificadora::temMaisCasasDpsVirgula)
-            stringNum2 = Formatadora::IgualarZeros(stringNum2, Formatadora::PegarCasasDpsVirgula(stringNum1, stringNum2));
+            stringNum2 = Formatadora::IgualarZerosDpsVirgula(stringNum2, Formatadora::DiferencaCasasDpsVirgula(stringNum1, stringNum2));
         else
         {
-            stringNum1 = Formatadora::IgualarZeros(stringNum1, Formatadora::PegarCasasDpsVirgula(stringNum1, stringNum2));
+            stringNum1 = Formatadora::IgualarZerosDpsVirgula(stringNum1, Formatadora::DiferencaCasasDpsVirgula(stringNum1, stringNum2));
         }
-        
+
         // A PARTIR DAQUI A LÓGICA DE VERDADE, EH ESTE MARCO QUE SEPARA OS/AS MENINOS/MENINAS DOS/DAS HOMENS/MULHERES
 
 

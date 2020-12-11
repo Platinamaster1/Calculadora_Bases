@@ -4,6 +4,7 @@
 #include "../Operadoras/SubtradoraDigito.h"
 #include "../Operadoras/MultiplicadoraDigito.h"
 #include "../Operadoras/DivisoraDigito.h"
+
 #ifndef CALCULADORA
 #define CALCULADORA
 

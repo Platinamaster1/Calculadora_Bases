@@ -7,8 +7,7 @@ class SubtradoraDigito
     private:
         int subiu;
     public:
-        Digito SubtrairDoisDigitos(Digito primeiro, Digito segundo, unsigned int base, bool emprestou);
-        bool EhMenor(Digito primeiro, Digito segundo);
+        char Subtrair(char primeiro, char segundo, unsigned int base, bool emprestou, bool foiEmprestado);
 };
 
 #endif

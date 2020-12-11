@@ -1,11 +1,15 @@
 #include "SomadoraDigito.h"
+#include "../Formatadora/Formatadora.h"
 
-Digito SomadoraDigito::SomarDoisDigitos(Digito primeiro, Digito segundo, unsigned int base)
+char SomadoraDigito::SomarDoisDigitos(char v1, char v2, unsigned int base)
 {
-    unsigned int resultado = primeiro.GetValor() + segundo.GetValor() + this->subiu;
+    int primeiro = 0, segundo = 0;
+    primeiro = Formatadora::ConverterDigitoCharParaInt(v1);
+    segundo = Formatadora::ConverterDigitoCharParaInt(v2);
+    unsigned int resultado = primeiro + segundo + this->subiu;
     unsigned int resto = resultado%base;
     this->subiu = resultado/base;
-    Digito ret;
-    ret.SetValor(resto);
+    char ret = Formatadora::ConverterDigitoIntParaChar(resto);
+
     return ret;
 };

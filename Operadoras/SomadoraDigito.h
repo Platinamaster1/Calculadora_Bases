@@ -7,7 +7,7 @@ class SomadoraDigito
     private:
         int subiu;
     public:
-        Digito SomarDoisDigitos(Digito primeiro, Digito segundo, unsigned int base);
+        char SomarDoisDigitos(char primeiro, char segundo, unsigned int base);
 };
 
 

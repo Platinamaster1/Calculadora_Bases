@@ -3,27 +3,66 @@
 
 using namespace std;
 
-int Formatadora::PegarCasasDpsVirgula(string valor1, string valor2)
+int Formatadora::DiferencaCasasDpsVirgula(string valor1, string valor2)
 {
-    int qntsCasasDpsVirgula1 = valor1.length() - valor1.find(',');
-    int qntsCasasDpsVirgula2 = valor2.length() - valor2.find(',');
+    int qntsCasasDpsVirgula1 = valor1.length() - valor1.find(',') + 1;
+    int qntsCasasDpsVirgula2 = valor2.length() - valor2.find(',') + 1;
+
     if(qntsCasasDpsVirgula1 > qntsCasasDpsVirgula2)
-        return qntsCasasDpsVirgula1;
-    return qntsCasasDpsVirgula2;
-<<<<<<< HEAD
+        return qntsCasasDpsVirgula1 - qntsCasasDpsVirgula2;
+
+    return qntsCasasDpsVirgula2 - qntsCasasDpsVirgula1;
 };
-string Formatadora::IgualarZeros(string valor, int casasDpsVirgula)
+
+int Formatadora::ConverterDigitoCharParaInt(char digito)
 {
-    for(int i = 0; i < casasDpsVirgula; i++)
-        valor += '0';
+    int valor = 0;
+    if (isdigit(digito))
+    {
+        valor = (int) digito - 48;
+    } 
+    else
+    {
+        valor = (int) toupper(digito) - 55;
+    }
+    return valor;
+}
+
+char Formatadora::ConverterDigitoIntParaChar(int digito)
+{
+    if(digito > 9)
+        return (char)(digito + 55);
+    return (char)(toupper(digito) + 48);
+}
+
+string Formatadora::IgualarZerosDpsVirgula(string valor, int diferencaCasasDpsVirgula)
+{
+    for(int i = 0; i < diferencaCasasDpsVirgula; i++)
+        valor.append("0");
+
     return valor;
 };
-=======
-};
-string Formatadora::IgualarZeros(string valor, int casasDpsVirgula)
+
+string Formatadora::FormatarResultado(string resultado)
 {
-    for(int i = 0; i < casasDpsVirgula; i++)
-        valor += '0';
-    return valor;
-};
->>>>>>> ef5b5cb4d249d732525602153e169a4cec6dea68
+    // Parte antes da vírgula...
+    for(int i = 0; i < resultado.length(); i++)
+    {
+        if(resultado.at(i) != '0')
+        {
+            resultado.erase(0, i);
+            break; 
+        }
+    }
+    // Parte depois da vírgula...
+    for(int i = resultado.length()-1; i > 0; i--)
+    {
+        if(resultado.at(i) != '0')
+        {
+            resultado.erase(resultado.begin()+i+1, resultado.end());
+            break;
+        }
+    }
+    return resultado;
+}
+

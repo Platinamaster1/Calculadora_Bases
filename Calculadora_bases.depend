@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1607632340 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
+1607695556 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
 	<iostream>
 	<string.h>
 	<vector>
 	<stdlib.h>
 	"Calculadora.h"
+	"../Verificadora/Verificadora.h"
 
-1607631674 d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.h
+1607693216 d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.h
 	"../Digito/Digito.h"
 	<string>
 	"../Operadoras/SomadoraDigito.h"
@@ -20,7 +21,7 @@
 1607433618 d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.h
 	"../Digito/Digito.h"
 
-1607435902 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
+1607695088 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
 	"../Digito/Digito.h"
 
 1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.h
@@ -42,10 +43,10 @@
 1607434650 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
 	"SomadoraDigito.h"
 
-1607434746 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
+1607695090 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
 	"SubtradoraDigito.h"
 
-1607631858 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
+1607695480 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
 	<iostream>
 	<string>
 	<stdlib.h>
@@ -54,13 +55,22 @@
 	"Calculadora/Calculadora.h"
 	"Digito/Digito.h"
 	"Verificadora/Verificadora.h"
+	"Formatadora/Formatadora.h"
 
-1607629192 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
+1607693224 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
 	<string.h>
 
-1607632254 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
+1607693106 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
 	<iostream>
 	<string.h>
 	<stdlib.h>
 	"Verificadora.h"
+
+1607696260 source:d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.cpp
+	<string>
+	<iostream>
+	"Formatadora.h"
+
+1607693238 d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.h
+	<string.h>
 

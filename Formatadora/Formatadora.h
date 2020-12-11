@@ -8,13 +8,12 @@ using namespace std;
 class Formatadora
 {
     public:
-        static int PegarCasasDpsVirgula(string valor1, string valor2);
-        static string IgualarZeros(string valor1, int casasDpsVirgula);
-        static string FormatarResultado(string resultado);
+        static int DiferencaCasasDpsVirgula(string v1, string v2);
+        static string IgualarZerosDpsVirgula(string v, int casasDpsVirgula);
+        static string FormatarResultado(string res);
+
+        static int ConverterDigitoCharParaInt(char digito);
+        static char ConverterDigitoIntParaChar(int valorDigito);
 };
 
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> ef5b5cb4d249d732525602153e169a4cec6dea68
