@@ -9,14 +9,38 @@ using namespace std;
 
 string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int base)
 {
-    
+    string maior, menor, aux, ret;
+    if(Verificadora::ehMaior(numero, numeroASomar))
+    {
+        maior = numero;
+        menor = numeroASomar;
+    }
+    else
+    {
+        maior = numeroASomar;
+        menor = numero;
+    }
+    SomadoraDigito operadora;
+    for(int i = maior.length(); i > 0; i++)
+    {
+        if(maior[i] == ',')
+        {
+            aux += ',';
+            continue;
+        }
+        if(maior[i] == '-')
+            break;
+        aux += operadora.SomarDoisDigitos(maior[i], menor[i], base);
+    }
+    for(int i = aux.length(); i > 0; i--)
+        ret.append(aux[i] + "");
+    return ret;
 };
 
 string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int base)
 {
-    string maior, menor;
-    string ret;
-    /*if(Verificadora::ehMaior(numero1, numero2))
+    string maior, menor, aux, ret;
+    if(Verificadora::ehMaior(numero1, numero2))
     {
         maior = numero1;
         menor = numero2;
@@ -25,21 +49,22 @@ string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int bas
     {
         maior = numero2;
         menor = numero1;
-    }*/
-    int ondeMaior = maior.length();
-    int ondeMenor = menor.length();
-    for(int i = ondeMenor; i >= 0; i--)
+    }
+    SubtradoraDigito operadora;
+    for(int i = maior.length(); i > 0; i++)
     {
-        if(maior[ondeMaior] == ',')
+        if(maior[i] == ',')
         {
-            ret.insert(ret.begin(), ',');
+            aux += ',';
             continue;
         }
-        if(menor[ondeMenor] == '-')
+        if(maior[i] == '-')
             break;
-
+        aux += operadora.Subtrair(maior[i], menor[i], base);
     }
-
+    for(int i = aux.length(); i > 0; i--)
+        ret.append(aux[i] + "");
+    return ret;
 };
 
 string Calculadora::MultiplicarCom(string numero, string numeroAMultiplicar, unsigned int base)

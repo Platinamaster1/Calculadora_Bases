@@ -5,9 +5,9 @@
 class SubtradoraDigito
 {
     private:
-        int subiu;
+        bool emprestou;
     public:
-        char Subtrair(char primeiro, char segundo, unsigned int base, bool emprestou, bool foiEmprestado);
+        char Subtrair(char primeiro, char segundo, unsigned int base);
 };
 
 #endif
