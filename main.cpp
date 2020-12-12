@@ -7,7 +7,6 @@
 using namespace std;
 
 #include "Calculadora/Calculadora.h"
-#include "Digito/Digito.h"
 #include "Verificadora/Verificadora.h"
 #include "Formatadora/Formatadora.h"
 
@@ -87,16 +86,13 @@ int main()
 
         cout << "Digite o primeiro numero: ";
         cin >> stringNum1;
-        cout << "Testando Formatadora..." << endl;
-        string res = Formatadora::FormatarResultado(stringNum1);
-        cout << res << endl;
-        return 0;
 
         while(!Verificadora::numeroValido(stringNum1, baseNumerica))
         {
             cout << "O numero digitado eh invalido! Digite o primeiro numero novamente: ";
             cin >> stringNum1;
         };
+        stringNum1 = Formatadora::FormatarNumero(stringNum1);
 
 
         cout << "Digite o segundo numero: ";
@@ -106,20 +102,55 @@ int main()
             cout << "O numero digitado eh invalido! Digite o segundo numero novamente: ";
             cin >> stringNum2;
         };
+        stringNum2 = Formatadora::FormatarNumero(stringNum2);
 
-        cout << stringNum1 << " " << stringNum2 << " " << baseNumerica << endl;
+        // Transforma os eventuais pontos existentes no número escrito pelo usuário em vírgulas para facilitar na hora da conta
+        if(Verificadora::temVirgula(stringNum1))
+            stringNum1[stringNum1.find_first_of(".,")] = ',';
+        if(Verificadora::temVirgula(stringNum2))
+            stringNum2[stringNum2.find_first_of(".,")] = ',';
 
-        stringNum1[stringNum1.find('.')] = ',';
-        stringNum2[stringNum2.find('.')] = ',';
-
-        if(Verificadora::temMaisCasasDpsVirgula)
-            stringNum2 = Formatadora::IgualarZerosDpsVirgula(stringNum2, Formatadora::DiferencaCasasDpsVirgula(stringNum1, stringNum2));
-        else
+        // Iguala os zeros das duas strings para facilitar as contas como feitas no passo a passo aprendido em aula
+        if(Verificadora::temVirgula(stringNum1) || Verificadora::temVirgula(stringNum2))
         {
-            stringNum1 = Formatadora::IgualarZerosDpsVirgula(stringNum1, Formatadora::DiferencaCasasDpsVirgula(stringNum1, stringNum2));
+            stringNum1 = Formatadora::AdicionarVirgulaCasoPrecise(stringNum1);
+            stringNum2 = Formatadora::AdicionarVirgulaCasoPrecise(stringNum2);
+
+            if(Verificadora::temMaisCasasDpsVirgula(stringNum1, stringNum2))
+                stringNum2 = Formatadora::IgualarZerosDpsVirgula(stringNum2, Formatadora::DiferencaCasasDpsVirgula(stringNum1, stringNum2));
+            else
+                stringNum1 = Formatadora::IgualarZerosDpsVirgula(stringNum1, Formatadora::DiferencaCasasDpsVirgula(stringNum1, stringNum2));
         }
 
+        if(Verificadora::temMaisCasasAntesVirgula(stringNum1, stringNum2))
+                stringNum2 = Formatadora::IgualarZerosAntesVirgula(stringNum2, Formatadora::DiferencaCasasAntesVirgula(stringNum1, stringNum2));
+            else
+                stringNum1 = Formatadora::IgualarZerosAntesVirgula(stringNum1, Formatadora::DiferencaCasasAntesVirgula(stringNum1, stringNum2));
+
         // A PARTIR DAQUI A LÓGICA DE VERDADE, EH ESTE MARCO QUE SEPARA OS/AS MENINOS/MENINAS DOS/DAS HOMENS/MULHERES
+
+        string resultadoOperacao = "";
+        switch(opcao)
+        {
+            case '+':
+                resultadoOperacao = calc.SomarCom(stringNum1, stringNum2, baseNumerica);
+                break;
+            case '-':
+                resultadoOperacao = calc.SubtrairCom(stringNum1, stringNum2, baseNumerica);
+                break;
+            case 'X':
+            case 'x':
+            case '.':
+            case '*':
+                resultadoOperacao = calc.MultiplicarCom(stringNum1, stringNum2, baseNumerica);
+                break;
+            case '/':
+            case ':':
+                resultadoOperacao = calc.DividirCom(stringNum1, stringNum2, baseNumerica);
+                break;
+        }
+        resultadoOperacao = Formatadora::FormatarNumero(resultadoOperacao);
+        cout << "\t\tResultado: " << resultadoOperacao << endl << endl;
 
         bool resultadoNegativo = false;
         if(stringNum1[0] == '-' && stringNum2[0] == '-')
@@ -205,11 +236,12 @@ int main()
         //verifica se o resultado será negativo ou positivo para que não precisemos nos preocupar se o resultado for negativo
         if(resultadoNegativo)
         {
-            
+
         }
     }
     while (opcao != 'S' && opcao != 's');
 
+    return 0;
 };
 
 

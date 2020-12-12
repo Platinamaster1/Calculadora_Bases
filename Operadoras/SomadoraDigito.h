@@ -5,7 +5,7 @@
 class SomadoraDigito
 {
     private:
-        int subiu;
+        int subiu = 0;
     public:
         char SomarDoisDigitos(char primeiro, char segundo, unsigned int base);
 };

@@ -13,7 +13,7 @@ char SubtradoraDigito::Subtrair(char digito1, char digito2, unsigned int base)
     };
     if(valor2 > valor1)
     {
-        valor1 = base - 1;
+        valor1 += base;
         this->emprestou = true;
     }
     unsigned int resultado = valor1 - valor2;

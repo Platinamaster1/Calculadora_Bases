@@ -1,5 +1,7 @@
 #include <string>
+#include <iostream>
 #include "Formatadora.h"
+#include "../Verificadora/Verificadora.h"
 
 using namespace std;
 
@@ -14,13 +16,36 @@ int Formatadora::DiferencaCasasDpsVirgula(string valor1, string valor2)
     return qntsCasasDpsVirgula2 - qntsCasasDpsVirgula1;
 };
 
+int Formatadora::DiferencaCasasAntesVirgula(string valor1, string valor2)
+{
+    int qntsCasasAntesVirgula1 = 0;
+    int qntsCasasAntesVirgula2 = 0;
+    int indiceVirgula1 = valor1.find(',');
+    int indiceVirgula2 = valor2.find(',');
+
+    if(indiceVirgula1 == -1)
+        qntsCasasAntesVirgula1 = valor1.length();
+    else
+        qntsCasasAntesVirgula1 = indiceVirgula1;
+
+    if(indiceVirgula2 == -1)
+        qntsCasasAntesVirgula2 = valor2.length();
+    else
+        qntsCasasAntesVirgula2 = indiceVirgula2;
+
+    if(qntsCasasAntesVirgula1 > qntsCasasAntesVirgula2)
+        return qntsCasasAntesVirgula1 - qntsCasasAntesVirgula2;
+
+    return qntsCasasAntesVirgula2 - qntsCasasAntesVirgula1;
+}
+
 int Formatadora::ConverterDigitoCharParaInt(char digito)
 {
     int valor = 0;
     if (isdigit(digito))
     {
         valor = (int) digito - 48;
-    } 
+    }
     else
     {
         valor = (int) toupper(digito) - 55;
@@ -35,42 +60,67 @@ char Formatadora::ConverterDigitoIntParaChar(int digito)
     return (char)(toupper(digito) + 48);
 }
 
+string Formatadora::AdicionarVirgulaCasoPrecise(string valor)
+{
+    int indiceVirgula = valor.find(',');
+    if(indiceVirgula == -1)
+        valor.append(",");
+    return valor;
+}
+
+string Formatadora::IgualarZerosAntesVirgula(string valor, int diferencaCasasAntesVirgula)
+{
+    string valorComZeros;
+    for(int i = 0; i < diferencaCasasAntesVirgula; i++)
+        valorComZeros.append("0");
+
+    valorComZeros.append(valor);
+    return valorComZeros;
+}
+
 string Formatadora::IgualarZerosDpsVirgula(string valor, int diferencaCasasDpsVirgula)
 {
     for(int i = 0; i < diferencaCasasDpsVirgula; i++)
         valor.append("0");
-
     return valor;
 };
 
-string Formatadora::FormatarResultado(string resultado)
+string Formatadora::FormatarNumero(string numero)
 {
     // Parte antes da vírgula...
-    for(int i = 0; i < resultado.length(); i++)
+    if(numero.length() > 1)
     {
-        if(resultado.at(i) != '0')
+        for(int i = 0; i < numero.length(); i++)
         {
-            resultado.erase(0, i);
-            break; 
+            if(numero.at(i) != '0')
+            {
+                numero.erase(numero.begin(), numero.begin()+i);
+                break;
+            }
+        }
+        if(Verificadora::temVirgula(numero))
+        {
+            // Parte depois da vírgula...
+            for(int i = numero.length()-1; i >= 0; i--)
+            {
+                if(numero.at(i) != '0')
+                {
+                    if(numero.at(i) == ',')
+                        numero.erase(numero.begin()+i, numero.end());
+                    numero.erase(numero.begin()+i+1, numero.end());
+                    break;
+                }
+            }
         }
     }
-    // Parte depois da vírgula...
-    for(int i = resultado.length()-1; i > 0; i--)
-    {
-        if(resultado.at(i) != '0')
-        {
-            resultado.erase(resultado.begin()+i+1, resultado.end());
-            break;
-        }
-    }
-    return resultado;
+    return numero;
 }
 
 string Formatadora::InverterString(string invertida)
 {
     string ret;
-    for(int i = invertida.length(); i > 0; i--)
-        ret.append(invertida[i] + "");
+    for(int i = invertida.length()-1; i >= 0; i--)
+        ret += invertida[i];
     return ret;
 }
 

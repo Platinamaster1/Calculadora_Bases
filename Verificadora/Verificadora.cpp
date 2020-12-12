@@ -71,6 +71,14 @@ bool Verificadora::numeroValido(string numero, unsigned int base)
     return true;
 };
 
+bool Verificadora::temVirgula(string numero)
+{
+    int tem = numero.find_first_of(",.");
+    if(tem == -1)
+        return false;
+    return true;
+}
+
 bool Verificadora::operacaoValida(char opcao)
 {
     string operadores = "Xx*./÷:+-sS";
@@ -80,10 +88,32 @@ bool Verificadora::operacaoValida(char opcao)
     return true;
 };
 
+bool Verificadora::temMaisCasasAntesVirgula(string valor1, string valor2)
+{
+    int qntsCasasAntesVirgula1 = 0;
+    int qntsCasasAntesVirgula2 = 0;
+    int indiceVirgula1 = valor1.find(',');
+    int indiceVirgula2 = valor2.find(',');
+
+    if(indiceVirgula1 == -1)
+        qntsCasasAntesVirgula1 = valor1.length();
+    else
+        qntsCasasAntesVirgula1 = indiceVirgula1;
+
+    if(indiceVirgula2 == -1)
+        qntsCasasAntesVirgula2 = valor2.length();
+    else
+        qntsCasasAntesVirgula2 = indiceVirgula2;
+
+    if(qntsCasasAntesVirgula1 > qntsCasasAntesVirgula2)
+        return true;
+    return false;
+}
+
 bool Verificadora::temMaisCasasDpsVirgula(string valor1, string valor2)
 {
-    int qntsCasasDpsVirgula1 = valor1.length() - valor1.find(',');
-    int qntsCasasDpsVirgula2 = valor2.length() - valor2.find(',');
+    int qntsCasasDpsVirgula1 = valor1.length() - valor1.find(',') + 1;
+    int qntsCasasDpsVirgula2 = valor2.length() - valor2.find(',') + 1;
     if(qntsCasasDpsVirgula1 > qntsCasasDpsVirgula2)
         return true;
     return false;
@@ -102,7 +132,10 @@ bool Verificadora::digitoEhMaior(char digito1, char digito2)
 bool Verificadora::ehMaior(string numero1, string numero2)
 {
     int ondeNumero2 = 0;
-    bool passouVirgula1 = false, passouVirgula2 = false, numero1EhMaior = false, umNumeroFoiMaior = false;
+    bool passouVirgula1 = false;
+    bool passouVirgula2 = false;
+    bool numero1EhMaior = false;
+    bool umNumeroFoiMaior = false;
     for(int i = 0; i < numero1.length(); i++)
     {
         if(numero1[i] == '-')
@@ -130,11 +163,19 @@ bool Verificadora::ehMaior(string numero1, string numero2)
         }
         int valor1 = Formatadora::ConverterDigitoCharParaInt(numero1[i]);
         int valor2 = Formatadora::ConverterDigitoCharParaInt(numero2[ondeNumero2]);
-        if(valor1 > valor2 || valor2 > valor1)
+        if(valor1 > valor2)
         {
             umNumeroFoiMaior = true;
-            if(valor1 > valor2)
-                numero1EhMaior = true;
+            numero1EhMaior = true;
+            ondeNumero2++;
+            continue;
+        }
+        if(valor2 > valor1)
+        {
+            umNumeroFoiMaior = true;
+            numero1EhMaior = false;
+            ondeNumero2++;
+            continue;
         }
     }
     return numero1EhMaior;

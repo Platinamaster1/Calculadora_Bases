@@ -22,7 +22,7 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
         menor = numero;
     }
     SomadoraDigito operadora;
-    for(int i = maior.length(); i > 0; i++)
+    for(int i = menor.length()-1; i >= 0; i--)
     {
         if(maior[i] == ',')
         {
@@ -33,9 +33,12 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
             break;
         aux += operadora.SomarDoisDigitos(maior[i], menor[i], base);
     }
+
+    // Pra quando temos um número que subiu na ultima conta, ele não seria escrito, fazendo essa última conta imaginária ele aparece
     char oQueSubiu = operadora.SomarDoisDigitos('0', '0', base);
     if(oQueSubiu != '0')
         aux += oQueSubiu;
+
     ret = Formatadora::InverterString(aux);
     return ret;
 };
@@ -53,8 +56,9 @@ string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int bas
         maior = numero2;
         menor = numero1;
     }
+
     SubtradoraDigito operadora;
-    for(int i = maior.length(); i > 0; i++)
+    for(int i = menor.length()-1; i >= 0; i--)
     {
         if(maior[i] == ',')
         {
@@ -72,7 +76,7 @@ string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int bas
 string Calculadora::MultiplicarCom(string numeroAMultiplicar, string numeroQueVaiMultiplicar, unsigned int base)
 {
     string ret = "0";
-    for(int i = numeroQueVaiMultiplicar.length(); i > 0; i++)
+    for(int i = numeroQueVaiMultiplicar.length(); i > 0; i--)
     {
         if(numeroQueVaiMultiplicar[i] == ',')
         {

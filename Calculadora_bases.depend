@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1607695556 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
+1607809886 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
 	<iostream>
 	<string.h>
 	<vector>
 	<stdlib.h>
 	"Calculadora.h"
 	"../Verificadora/Verificadora.h"
+	"../Formatadora/Formatadora.h"
 
 1607693216 d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.h
 	"../Digito/Digito.h"
@@ -18,14 +19,15 @@
 1607464304 d:\4ºsemestre\too\calculadora_bases\digito\digito.h
 	<iostream>
 
-1607433618 d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.h
+1607810830 d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.h
 	"../Digito/Digito.h"
 
-1607695088 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
+1607747004 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
 	"../Digito/Digito.h"
 
-1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.h
+1607790804 d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.h
 	"../Digito/Digito.h"
+	<string.h>
 
 1607432560 d:\4ºsemestre\too\calculadora_bases\operadoras\divisoradigito.h
 	"../Digito/Digito.h"
@@ -38,39 +40,45 @@
 
 1607432460 source:d:\4ºsemestre\too\calculadora_bases\operadoras\divisoradigito.cpp
 
-1607432448 source:d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.cpp
+1607790804 source:d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.cpp
+	"MultiplicadoraDigito.h"
+	"../Formatadora/Formatadora.h"
+	<string.h>
 
-1607434650 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
+1607810764 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
 	"SomadoraDigito.h"
+	"../Formatadora/Formatadora.h"
 
-1607695090 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
+1607810058 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
 	"SubtradoraDigito.h"
+	"../Formatadora/Formatadora.h"
 
-1607695480 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
+1607809912 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
 	<iostream>
 	<string>
 	<stdlib.h>
 	<vector>
 	<locale.h>
 	"Calculadora/Calculadora.h"
-	"Digito/Digito.h"
 	"Verificadora/Verificadora.h"
 	"Formatadora/Formatadora.h"
 
-1607693224 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
+1607805204 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
 	<string.h>
 
-1607693106 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
+1607810650 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
 	<iostream>
 	<string.h>
 	<stdlib.h>
 	"Verificadora.h"
+	"../Formatadora/Formatadora.h"
 
-1607696260 source:d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.cpp
+1607809900 source:d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.cpp
 	<string>
 	<iostream>
 	"Formatadora.h"
+	"../Verificadora/Verificadora.h"
 
-1607693238 d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.h
+1607805174 d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.h
 	<string.h>
 
