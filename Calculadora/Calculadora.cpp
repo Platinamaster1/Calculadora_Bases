@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "Calculadora.h"
 #include "../Verificadora/Verificadora.h"
+#include "../Formatadora/Formatadora.h"
 
 using namespace std;
 
@@ -32,8 +33,10 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
             break;
         aux += operadora.SomarDoisDigitos(maior[i], menor[i], base);
     }
-    for(int i = aux.length(); i > 0; i--)
-        ret.append(aux[i] + "");
+    char oQueSubiu = operadora.SomarDoisDigitos('0', '0', base);
+    if(oQueSubiu != '0')
+        aux += oQueSubiu;
+    ret = Formatadora::InverterString(aux);
     return ret;
 };
 
@@ -62,14 +65,27 @@ string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int bas
             break;
         aux += operadora.Subtrair(maior[i], menor[i], base);
     }
-    for(int i = aux.length(); i > 0; i--)
-        ret.append(aux[i] + "");
+    ret = Formatadora::InverterString(aux);
     return ret;
 };
 
-string Calculadora::MultiplicarCom(string numero, string numeroAMultiplicar, unsigned int base)
+string Calculadora::MultiplicarCom(string numeroAMultiplicar, string numeroQueVaiMultiplicar, unsigned int base)
 {
-
+    string ret = "0";
+    for(int i = numeroQueVaiMultiplicar.length(); i > 0; i++)
+    {
+        if(numeroQueVaiMultiplicar[i] == ',')
+        {
+            ret += ',';
+            continue;
+        }
+        if(numeroQueVaiMultiplicar[i] == '-')
+            break;
+        string resultadoDoDigito = MultiplicadoraDigito::MultiplicarPor1Digito(numeroAMultiplicar, numeroQueVaiMultiplicar[i], base);
+        ret = SomarCom(ret, resultadoDoDigito, base);
+        numeroAMultiplicar.append("0");
+    }
+    return ret;
 };
 
 string Calculadora::DividirCom(string numero, string divisor, unsigned int base)

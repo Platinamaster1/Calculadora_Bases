@@ -14,6 +14,8 @@ class Formatadora
 
         static int ConverterDigitoCharParaInt(char digito);
         static char ConverterDigitoIntParaChar(int valorDigito);
+
+        static string InverterString(string invertida);
 };
 
 #endif

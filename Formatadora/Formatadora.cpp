@@ -66,3 +66,11 @@ string Formatadora::FormatarResultado(string resultado)
     return resultado;
 }
 
+string Formatadora::InverterString(string invertida)
+{
+    string ret;
+    for(int i = invertida.length(); i > 0; i--)
+        ret.append(invertida[i] + "");
+    return ret;
+}
+
