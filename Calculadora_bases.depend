@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1607836006 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
+1607893528 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
 	<iostream>
 	<string.h>
 	<vector>
@@ -45,7 +45,7 @@
 	"../Formatadora/Formatadora.h"
 	<string.h>
 
-1607811036 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
+1607892294 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
 	"SomadoraDigito.h"
 	"../Formatadora/Formatadora.h"
 
@@ -63,10 +63,10 @@
 	"Verificadora/Verificadora.h"
 	"Formatadora/Formatadora.h"
 
-1607834676 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
+1607891058 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
 	<string.h>
 
-1607835512 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
+1607891114 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
 	<iostream>
 	<string.h>
 	<stdlib.h>

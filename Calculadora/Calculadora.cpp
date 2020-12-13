@@ -21,12 +21,11 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
         maior = numeroASomar;
         menor = numero;
     }
-    cout << "Maior: " << maior << " Menor: " << menor << endl;
+
     SomadoraDigito operadora;
     SubtradoraDigito operadora2;
     if(Verificadora::primeiroNumNegativo(maior, menor))
     {
-        cout << "Entrou primerio negativo" << endl;
         maior = Formatadora::RetirarSinal(maior);
         for(int i = menor.length()-1; i >= 0; i--)
         {
@@ -43,7 +42,6 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
     }
     else if(Verificadora::segundoNumNegativo(maior, menor))
     {
-        cout << "Entrou segundo negativo" << endl;
         menor = Formatadora::RetirarSinal(menor);
         for(int i = menor.length()-1; i >= 0; i--)
         {
@@ -60,7 +58,6 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
     // Se nenhum tiver sinal negativo ou se os dois tiverem...
     else
     {
-        cout << "Entrou nenhum negativo ou os dois" << endl;
         for(int i = menor.length()-1; i >= 0; i--)
         {
             if(maior[i] == ',')
@@ -72,6 +69,8 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
                 break;
             aux += operadora.SomarDoisDigitos(maior[i], menor[i], base);
         }
+        if(Verificadora::osDoisNegativos(maior, menor))
+            aux.append("-");
     }
 
     // Pra quando temos um número que subiu na ultima conta, ele não seria escrito, fazendo essa última conta imaginária ele aparece
@@ -83,8 +82,12 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
     return ret;
 };
 
+
+
 string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int base)
 {
+    // Não podemos mudar a ordem na subtração (a ordem dos fatores altera o resultado)
+    // Porém, continuamos definindo para uso de seus length() (apenas do menor) para não dar erro
     string maior, menor, aux, ret;
     if(Verificadora::ehMaior(numero1, numero2))
     {
@@ -96,19 +99,71 @@ string Calculadora::SubtrairCom(string numero1, string numero2, unsigned int bas
         maior = numero2;
         menor = numero1;
     }
+    cout << "Valor1: " << numero1 << " Valor2: " << numero2 << endl;
+    cout << "Maior: " << maior << " Menor: " << menor << endl;
 
     SubtradoraDigito operadora;
-    for(int i = menor.length()-1; i >= 0; i--)
+    SomadoraDigito operadora1;
+    if(Verificadora::primeiroNumNegativo(numero1, numero2))
     {
-        if(maior[i] == ',')
+        if(menor == numero1)
+            menor = Formatadora::RetirarSinal(menor);
+        numero1 = Formatadora::RetirarSinal(numero1);
+        for(int i = menor.length()-1; i >= 0; i--)
         {
-            aux += ',';
-            continue;
+            if(numero1[i] == ',')
+            {
+                aux += ',';
+                continue;
+            }
+            if(numero1[i] == '-')
+                break;
+            cout << "INDICE: " << i << endl;
+            aux += operadora1.SomarDoisDigitos(numero1[i], numero2[i], base);
         }
-        if(maior[i] == '-')
-            break;
-        aux += operadora.Subtrair(maior[i], menor[i], base);
+        aux.append("-");
     }
+    else if(Verificadora::segundoNumNegativo(numero1, numero2))
+    {
+        cout << "O segundo e negativo" << endl;
+        if(menor == numero2)
+            menor = Formatadora::RetirarSinal(menor);
+        numero2 = Formatadora::RetirarSinal(numero2);
+        cout << "Numero sem sinal: " << numero2;
+        for(int i = menor.length()-1; i >= 0; i--)
+        {
+            if(numero1[i] == ',')
+            {
+                aux += ',';
+                continue;
+            }
+            if(numero1[i] == '-')
+                break;
+            cout << "INDICE: " << i << endl;
+            aux += operadora1.SomarDoisDigitos(numero1[i], numero2[i], base);
+        }
+    }
+    // Se nenhum tiver sinal negativo ou se os dois tiverem...
+    else
+    {
+        cout << "Nenhum sinal negativo ou os dois" << endl;
+        for(int i = menor.length()-1; i >= 0; i--)
+        {
+            if(numero1[i] == ',')
+            {
+                aux += ',';
+                continue;
+            }
+            if(numero1[i] == '-')
+                break;
+            aux += operadora.Subtrair(maior[i], menor[i], base);
+        }
+        if(Verificadora::numNegativo(numero1) && numero1 == maior)
+            aux.append("-");
+        if(!Verificadora::numNegativo(numero2) && numero2 == maior)
+            aux.append("-");
+    }
+
     ret = Formatadora::InverterString(aux);
     return ret;
 };

@@ -19,6 +19,7 @@ class Verificadora
 
         static bool primeiroNumNegativo(string valor1, string valor2);
         static bool segundoNumNegativo(string valor1, string valor2);
+        static bool osDoisNegativos(string valor1, string valor2);
         static bool numNegativo(string num);
 };
 

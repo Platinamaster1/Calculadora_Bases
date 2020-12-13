@@ -207,3 +207,10 @@ bool Verificadora::numNegativo(string num)
         return true;
     return false;
 }
+
+bool Verificadora::osDoisNegativos(string v1, string v2)
+{
+    if(v1.at(0) == '-' && v2.at(0) == '-')
+        return true;
+    return false;
+}
