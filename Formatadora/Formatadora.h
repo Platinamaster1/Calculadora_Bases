@@ -15,6 +15,8 @@ class Formatadora
         static string IgualarZerosDpsVirgula(string v, int casasDpsVirgula);
         static string FormatarNumero(string num);
 
+        static string RetirarSinal(string num);
+
         static int ConverterDigitoCharParaInt(char digito);
         static char ConverterDigitoIntParaChar(int valorDigito);
 

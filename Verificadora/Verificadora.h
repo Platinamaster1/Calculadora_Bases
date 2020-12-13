@@ -16,6 +16,10 @@ class Verificadora
         static bool temMaisCasasDpsVirgula(string valor1, string valor2);
         static bool digitoEhMaior(char digito1, char digito2);
         static bool ehMaior(string valor1, string valor2);
+
+        static bool primeiroNumNegativo(string valor1, string valor2);
+        static bool segundoNumNegativo(string valor1, string valor2);
+        static bool numNegativo(string num);
 };
 
 #endif

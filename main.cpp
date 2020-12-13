@@ -10,6 +10,9 @@ using namespace std;
 #include "Verificadora/Verificadora.h"
 #include "Formatadora/Formatadora.h"
 
+
+// BRUNO ARNONE FRANCHI - 19164
+// ENZO FUREGATTI SPINELLA = 19168
 int main()
 {
     Calculadora calc;
@@ -128,6 +131,8 @@ int main()
                 stringNum1 = Formatadora::IgualarZerosAntesVirgula(stringNum1, Formatadora::DiferencaCasasAntesVirgula(stringNum1, stringNum2));
 
         // A PARTIR DAQUI A LÓGICA DE VERDADE, EH ESTE MARCO QUE SEPARA OS/AS MENINOS/MENINAS DOS/DAS HOMENS/MULHERES
+        // OPAOPAOPAOPAOPAOPAOPOAPP NÃO ESTÁ FUNCIONANDO COM NÚMEROS NEGATIVOS, NEM A SOMA NEM A SUBTRAÇÃO ;-;-;-;-;
+
 
         string resultadoOperacao = "";
         switch(opcao)
@@ -150,7 +155,7 @@ int main()
                 break;
         }
         resultadoOperacao = Formatadora::FormatarNumero(resultadoOperacao);
-        cout << "\t\tResultado: " << resultadoOperacao << endl << endl;
+        cout << "\t\t| Resultado: " << resultadoOperacao << " |" << endl << endl;
 
         bool resultadoNegativo = false;
         if(stringNum1[0] == '-' && stringNum2[0] == '-')

@@ -100,10 +100,16 @@ bool Verificadora::temMaisCasasAntesVirgula(string valor1, string valor2)
     else
         qntsCasasAntesVirgula1 = indiceVirgula1;
 
+    if(Verificadora::numNegativo(valor1))
+        qntsCasasAntesVirgula1--;
+
     if(indiceVirgula2 == -1)
         qntsCasasAntesVirgula2 = valor2.length();
     else
         qntsCasasAntesVirgula2 = indiceVirgula2;
+
+    if(Verificadora::numNegativo(valor2))
+        qntsCasasAntesVirgula2--;
 
     if(qntsCasasAntesVirgula1 > qntsCasasAntesVirgula2)
         return true;
@@ -180,3 +186,24 @@ bool Verificadora::ehMaior(string numero1, string numero2)
     }
     return numero1EhMaior;
 };
+
+bool Verificadora::primeiroNumNegativo(string v1, string v2)
+{
+    if(v1.at(0) == '-' && v2.at(0) != '-')
+        return true;
+    return false;
+}
+
+bool Verificadora::segundoNumNegativo(string v1, string v2)
+{
+    if(v1.at(0) != '-' && v2.at(0) == '-')
+        return true;
+    return false;
+}
+
+bool Verificadora::numNegativo(string num)
+{
+    if(num.at(0) == '-')
+        return true;
+    return false;
+}

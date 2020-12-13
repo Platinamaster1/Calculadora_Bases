@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1607809886 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
+1607836006 source:d:\4ºsemestre\too\calculadora_bases\calculadora\calculadora.cpp
 	<iostream>
 	<string.h>
 	<vector>
@@ -22,7 +22,7 @@
 1607810830 d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.h
 	"../Digito/Digito.h"
 
-1607747004 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
+1607836250 d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.h
 	"../Digito/Digito.h"
 
 1607790804 d:\4ºsemestre\too\calculadora_bases\operadoras\multiplicadoradigito.h
@@ -45,15 +45,15 @@
 	"../Formatadora/Formatadora.h"
 	<string.h>
 
-1607810764 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
+1607811036 source:d:\4ºsemestre\too\calculadora_bases\operadoras\somadoradigito.cpp
 	"SomadoraDigito.h"
 	"../Formatadora/Formatadora.h"
 
-1607810058 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
+1607836088 source:d:\4ºsemestre\too\calculadora_bases\operadoras\subtradoradigito.cpp
 	"SubtradoraDigito.h"
 	"../Formatadora/Formatadora.h"
 
-1607809912 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
+1607834984 source:d:\4ºsemestre\too\calculadora_bases\main.cpp
 	<iostream>
 	<string>
 	<stdlib.h>
@@ -63,22 +63,22 @@
 	"Verificadora/Verificadora.h"
 	"Formatadora/Formatadora.h"
 
-1607805204 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
+1607834676 d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.h
 	<string.h>
 
-1607810650 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
+1607835512 source:d:\4ºsemestre\too\calculadora_bases\verificadora\verificadora.cpp
 	<iostream>
 	<string.h>
 	<stdlib.h>
 	"Verificadora.h"
 	"../Formatadora/Formatadora.h"
 
-1607809900 source:d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.cpp
+1607835972 source:d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.cpp
 	<string>
 	<iostream>
 	"Formatadora.h"
 	"../Verificadora/Verificadora.h"
 
-1607805174 d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.h
+1607835932 d:\4ºsemestre\too\calculadora_bases\formatadora\formatadora.h
 	<string.h>
 

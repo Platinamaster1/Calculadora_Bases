@@ -28,10 +28,16 @@ int Formatadora::DiferencaCasasAntesVirgula(string valor1, string valor2)
     else
         qntsCasasAntesVirgula1 = indiceVirgula1;
 
+    if(Verificadora::numNegativo(valor1))
+        qntsCasasAntesVirgula1--;
+
     if(indiceVirgula2 == -1)
         qntsCasasAntesVirgula2 = valor2.length();
     else
         qntsCasasAntesVirgula2 = indiceVirgula2;
+
+    if(Verificadora::numNegativo(valor2))
+        qntsCasasAntesVirgula2--;
 
     if(qntsCasasAntesVirgula1 > qntsCasasAntesVirgula2)
         return qntsCasasAntesVirgula1 - qntsCasasAntesVirgula2;
@@ -70,11 +76,16 @@ string Formatadora::AdicionarVirgulaCasoPrecise(string valor)
 
 string Formatadora::IgualarZerosAntesVirgula(string valor, int diferencaCasasAntesVirgula)
 {
+    cout << "Valor: " << valor << " DiferencaCAsas: " << diferencaCasasAntesVirgula << endl;
     string valorComZeros;
+    if(Verificadora::numNegativo(valor))
+        valorComZeros.append("-");
     for(int i = 0; i < diferencaCasasAntesVirgula; i++)
         valorComZeros.append("0");
 
-    valorComZeros.append(valor);
+    for(int i = 0; i < valor.length(); i++)
+        if(valor[i] != '-')
+            valorComZeros += valor[i];
     return valorComZeros;
 }
 
@@ -92,9 +103,12 @@ string Formatadora::FormatarNumero(string numero)
     {
         for(int i = 0; i < numero.length(); i++)
         {
-            if(numero.at(i) != '0')
+            if(numero.at(i) != '0' && numero.at(i) != '-')
             {
-                numero.erase(numero.begin(), numero.begin()+i);
+                if(numero.at(0) == '-')
+                    numero.erase(numero.begin()+1, numero.begin()+i);
+                else
+                    numero.erase(numero.begin(), numero.begin()+i);
                 break;
             }
         }
@@ -113,6 +127,9 @@ string Formatadora::FormatarNumero(string numero)
             }
         }
     }
+    // Se houver um -0, muda-se para 0...
+    //if(numero.length() == 2 && numero.at(1) == '0')
+    //    numero.erase(0, 1);
     return numero;
 }
 
@@ -122,5 +139,11 @@ string Formatadora::InverterString(string invertida)
     for(int i = invertida.length()-1; i >= 0; i--)
         ret += invertida[i];
     return ret;
+}
+
+string Formatadora::RetirarSinal(string n)
+{
+    n.erase(0, 1);
+    return n;
 }
 

@@ -21,17 +21,57 @@ string Calculadora::SomarCom(string numero, string numeroASomar, unsigned int ba
         maior = numeroASomar;
         menor = numero;
     }
+    cout << "Maior: " << maior << " Menor: " << menor << endl;
     SomadoraDigito operadora;
-    for(int i = menor.length()-1; i >= 0; i--)
+    SubtradoraDigito operadora2;
+    if(Verificadora::primeiroNumNegativo(maior, menor))
     {
-        if(maior[i] == ',')
+        cout << "Entrou primerio negativo" << endl;
+        maior = Formatadora::RetirarSinal(maior);
+        for(int i = menor.length()-1; i >= 0; i--)
         {
-            aux += ',';
-            continue;
+            if(maior[i] == ',')
+            {
+                aux += ',';
+                continue;
+            }
+            if(maior[i] == '-')
+                break;
+            aux += operadora2.Subtrair(maior[i], menor[i], base);
         }
-        if(maior[i] == '-')
-            break;
-        aux += operadora.SomarDoisDigitos(maior[i], menor[i], base);
+        aux.append("-");
+    }
+    else if(Verificadora::segundoNumNegativo(maior, menor))
+    {
+        cout << "Entrou segundo negativo" << endl;
+        menor = Formatadora::RetirarSinal(menor);
+        for(int i = menor.length()-1; i >= 0; i--)
+        {
+            if(maior[i] == ',')
+            {
+                aux += ',';
+                continue;
+            }
+            if(maior[i] == '-')
+                break;
+            aux += operadora2.Subtrair(maior[i], menor[i], base);
+        }
+    }
+    // Se nenhum tiver sinal negativo ou se os dois tiverem...
+    else
+    {
+        cout << "Entrou nenhum negativo ou os dois" << endl;
+        for(int i = menor.length()-1; i >= 0; i--)
+        {
+            if(maior[i] == ',')
+            {
+                aux += ',';
+                continue;
+            }
+            if(maior[i] == '-')
+                break;
+            aux += operadora.SomarDoisDigitos(maior[i], menor[i], base);
+        }
     }
 
     // Pra quando temos um número que subiu na ultima conta, ele não seria escrito, fazendo essa última conta imaginária ele aparece
