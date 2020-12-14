@@ -34,12 +34,12 @@
 		</Compiler>
 		<Unit filename="Calculadora/Calculadora.cpp" />
 		<Unit filename="Calculadora/Calculadora.h" />
-		<Unit filename="Digito/Digito.cpp" />
-		<Unit filename="Digito/Digito.h" />
+		<Unit filename="Contadora/Contadora.cpp" />
+		<Unit filename="Contadora/Contadora.h" />
+		<Unit filename="Conversora/Conversora.cpp" />
+		<Unit filename="Conversora/Conversora.h" />
 		<Unit filename="Formatadora/Formatadora.cpp" />
 		<Unit filename="Formatadora/Formatadora.h" />
-		<Unit filename="Operadoras/DivisoraDigito.cpp" />
-		<Unit filename="Operadoras/DivisoraDigito.h" />
 		<Unit filename="Operadoras/MultiplicadoraDigito.cpp" />
 		<Unit filename="Operadoras/MultiplicadoraDigito.h" />
 		<Unit filename="Operadoras/SomadoraDigito.cpp" />

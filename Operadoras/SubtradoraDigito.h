@@ -1,4 +1,3 @@
-#include "../Digito/Digito.h"
 #ifndef SUBTRADORA
 #define SUBTRADORA
 
@@ -8,6 +7,7 @@ class SubtradoraDigito
         bool emprestou = false;
     public:
         char Subtrair(char primeiro, char segundo, unsigned int base);
+        bool operator==(SubtradoraDigito &outra);
 };
 
 #endif

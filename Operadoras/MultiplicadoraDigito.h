@@ -1,5 +1,5 @@
-#include "../Digito/Digito.h"
-#include <string.h>
+#include <string>
+using namespace std;
 #ifndef MULTIPLICADORA
 #define MULTIPLICADORA
 class MultiplicadoraDigito
