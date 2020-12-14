@@ -45,6 +45,19 @@ int Formatadora::DiferencaCasasAntesVirgula(string valor1, string valor2)
     return qntsCasasAntesVirgula2 - qntsCasasAntesVirgula1;
 }
 
+int Formatadora::SomaCasasDpsVirgula(string valor1, string valor2)
+{
+    cout << "VaLOR1: " << valor1 << " Valkor2: " << valor2 << endl;
+    int qntsCasasDpsVirgula1 = valor1.length() - (valor1.find(',') + 1);
+    cout << "Indice da virgula: " << valor1.find(',') << endl;
+    cout << "Qntscasas1: " << qntsCasasDpsVirgula1 << endl;
+    int qntsCasasDpsVirgula2 = valor2.length() - (valor2.find(',') + 1);
+    cout << "Indice da virgula: " << valor2.find(',') << endl;
+    cout << "Qntscasas2: " << qntsCasasDpsVirgula2 << endl;
+
+    return (qntsCasasDpsVirgula1 + qntsCasasDpsVirgula2);
+}
+
 int Formatadora::ConverterDigitoCharParaInt(char digito)
 {
     int valor = 0;
